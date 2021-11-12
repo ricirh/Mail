@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.petty.order.dao.OrderDao">
+
+    <resultMap id="BaseResultMap" type="com.petty.order.entity.Order">
+        <result column="id" jdbcType="VARCHAR" property="id" />
+        <result column="user_id" jdbcType="VARCHAR" property="userId"/>
+        <result column="good_id" jdbcType="VARCHAR" property="goodId"/>
+        <result column="create_time" jdbcType="DATE" property="createTime"/>
+        <result column="destination" jdbcType="VARCHAR" property="destination"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+    </resultMap>
+
+    <sql id="BaseFeild">id, good_id, create_time, destination, remark, status</sql>
+
+    <select id="getAllOrderList" resultMap="BaseResultMap">
+        select <include refid="BaseFeild"/>  from order_form
+    </select>
+
+    <select id="getOrderListByParams" resultMap="BaseResultMap">
+        select <include refid="BaseFeild"/>
+        from order_form
+        where
+            user_id = #{userId}
+    </select>
+
+</mapper>

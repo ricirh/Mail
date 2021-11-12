@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.petty.commdity.dao.GoodsDao">
+
+    <resultMap id="BaseResultMap" type="com.petty.commdity.entity.Goods">
+        <result column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="describe" jdbcType="VARCHAR" property="describe"/>
+        <result column="price" jdbcType="DOUBLE" property="price"/>
+        <result column="source_site" jdbcType="VARCHAR" property="sourceSite"/>
+    </resultMap>
+
+    <sql id="BaseFeild">id, name, price, source_site, brand</sql>
+
+    <select id="getGoodsList" resultMap="BaseResultMap">
+        select <include refid="BaseFeild"/>  from goods
+    </select>
+
+    <select id="getGoodsListByParams" resultMap="BaseResultMap">
+        select <include refid="BaseFeild"/>
+        from goods
+        where
+            true
+            <if test="minPrice != null and maxPrice != null">
+                and price between #{minPrice} and #{maxPrice}
+            </if>
+            <if test="sourceSite != null">
+                and source_site = #{sourceSite}
+            </if>
+            <if test="brands != null">
+                and brand in
+                <foreach collection="brands" item="item" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+    </select>
+
+
+    <select id="getGoodsListByIds" resultMap="BaseResultMap">
+        select <include refid="BaseFeild"/>
+        from goods
+        where
+        id in
+            <foreach collection="list" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+    </select>
+
+
+</mapper>

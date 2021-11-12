@@ -1,0 +1,47 @@
+server:
+  port: 8890
+
+spring:
+  application:
+    name: merchant
+  devtools:
+    restart:
+      enabled: true  #设置开启热部署
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root
+    username: root
+    url: jdbc:mysql://localhost:3306/mail?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
+
+  data:
+    elasticsearch:
+      cluster-nodes: 127.0.0.1:9200
+
+
+dubbo:
+  application:
+    name: order
+  protocol:
+    port: 20882
+  registry:
+    address: zookeeper://127.0.0.1:2181
+  consumer:
+    timeout: 3000
+    check: false
+  scan:
+    base-packages: com.petty.merchant.service
+
+
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: com.petty.merchant.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+logging:
+  level:
+    root: info
+  config: classpath:loggingConfig.xml
+  file:
+    path: ./logs

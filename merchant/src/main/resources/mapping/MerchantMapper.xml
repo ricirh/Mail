@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.petty.merchant.dao.MerchantDao">
+
+    <resultMap id="BaseResultMap" type="com.petty.merchant.entity.Merchant">
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="store_id" jdbcType="VARCHAR" property="storeId"/>
+    </resultMap>
+
+    <sql id="BaseFeild">username, password, store_id</sql>
+
+    <select id="findMerchantByNameAndPW" resultMap="BaseResultMap">
+        select <include refid="BaseFeild"/>  from merchant
+    </select>
+</mapper>

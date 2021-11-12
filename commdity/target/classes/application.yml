@@ -1,0 +1,50 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: commdity
+  devtools:
+    restart:
+      enabled: true  #设置开启热部署
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root
+    username: root
+    url: jdbc:mysql://localhost:3306/mail?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
+
+  data:
+    elasticsearch:
+      cluster-nodes: 127.0.0.1:9200
+
+dubbo:
+  application:
+    name: commdity_provider
+  registry:
+    protocol: zookeeper
+    address: zookeeper://127.0.0.1:2181
+  protocol:
+    name: dubbo
+    port: 20880
+  scan:
+    base-packages: com.petty.commdity.service.impl
+
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: com.petty.commdity.entity
+  configuration:
+    #org.apache.ibatis.logging.stdout.StdOutImpl 控制台打印sql语句方便调试sql语句执行错误
+    #org.apache.ibatis.logging.log4j2.Log4j2Impl:这个不在控制台打印查询结果,但是在log4j中打印
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+#pagehelper分页插件配置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+
+logging:
+  level:
+    root: info
+  config: classpath:loggingConfig.xml
+  file:
+    path: ./logs

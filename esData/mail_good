@@ -1,0 +1,39 @@
+PUT /mail_goods
+{
+  "mappings": {
+    "properties": {
+      "id":{"type": "keyword"},
+      "describe":{"type": "text"},
+      "labels":{"type": "text"},
+      "tags":{"type":"text"},
+      "brand":{"type": "text"},
+      "price":{"type": "double"},
+      "source_site":{"type": "text"}
+    }
+  }
+}
+
+
+
+POST /mail_goods/_bulk
+{ "create": { } }
+{"id":"fdsfdfsdaf","describe":"水培天堂鸟植物大绿植盆栽四季常青水养花卉鹤望兰室内阳台办公桌好养 有水就活的植物 净化空气 美化环境","labels":"包邮,货到付款,天猫,急速发货","tags":"绿植,盆栽,净化空气","price":50,"source_site":"成都"}
+{ "create": { } }
+{"id":"fkldfjkldsf","describe":"a5笔记本子超厚商务复古简约ins风大学生日记本加厚记事本b5办公人士用软皮面工作本会议记录本定制可印logo赠送签字笔多款式可选 一本起即可定制","labels":"天猫,运费险,折扣","tags":"学习用品,日记本,办公,复古","brand":"晨光","price":15,"source_site":"上海"}
+{ "create": { } }
+{"id":"flkjlew","describe":"雨伞定制可印logo广告伞定做黑伞印字大号长柄男女遮阳防晒批发伞 厂家直销 免费印刷 隔天发货 防晒防紫外线","labels":"促销,货到付款,分期免息,次日达","tags":"日用品,雨伞,易携带,定制","brand":"天堂伞","price":100,"source_site":"北京"}
+{ "create": { } }
+{"id":"jkdfjkdfnnc","describe":"40包抽纸整箱批发家用卫生纸巾实惠装餐巾纸小包擦手面巾纸抽漫花 整箱40包半年装 经济实惠装","labels":"新品,包邮","brand":"千唯","tags":"日用品,家装,抽纸","price":20,"source_site":"杭州"}
+
+
+GET /mail_goods/_search
+
+GET /mail_goods/_search
+{
+  "query": {
+    "match": {
+      "brand": "千唯,晨光"
+    }
+  }
+}
+

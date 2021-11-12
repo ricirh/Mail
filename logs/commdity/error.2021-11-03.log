@@ -1,0 +1,42 @@
+2021-11-03 18:16:57 [http-nio-8888-exec-10] ERROR com.petty.commdity.controller.GoodsController - / by zero
+2021-11-03 18:17:16 [http-nio-8888-exec-8] ERROR com.petty.commdity.controller.GoodsController - Validation Failed: 1: scrollId is missing;
+2021-11-03 18:22:11 [http-nio-8888-exec-9] ERROR com.petty.commdity.controller.GoodsController - Validation Failed: 1: scrollId is missing;
+2021-11-03 18:27:26 [restartedMain] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field esSearchService in com.petty.commdity.service.impl.GoodsServiceImpl required a bean of type 'com.petty.commdity.service.EsSearchService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.petty.commdity.service.EsSearchService' in your configuration.
+
+2021-11-03 18:31:29 [http-nio-8888-exec-1] ERROR com.petty.commdity.controller.GoodsController - Elasticsearch exception [type=search_phase_execution_exception, reason=all shards failed]
+2021-11-03 18:31:36 [restartedMain] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field esSearchService in com.petty.commdity.service.impl.GoodsServiceImpl required a bean of type 'com.petty.commdity.service.EsSearchService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.petty.commdity.service.EsSearchService' in your configuration.
+
+2021-11-03 18:40:28 [http-nio-8888-exec-4] ERROR com.petty.commdity.controller.GoodsController - Elasticsearch exception [type=search_phase_execution_exception, reason=all shards failed]
+2021-11-03 18:45:05 [http-nio-8888-exec-6] ERROR com.petty.commdity.controller.GoodsController - Elasticsearch exception [type=search_phase_execution_exception, reason=all shards failed]
