@@ -24,16 +24,3 @@ POST /mail_goods/_bulk
 {"id":"flkjlew","describe":"雨伞定制可印logo广告伞定做黑伞印字大号长柄男女遮阳防晒批发伞 厂家直销 免费印刷 隔天发货 防晒防紫外线","labels":"促销,货到付款,分期免息,次日达","tags":"日用品,雨伞,易携带,定制","brand":"天堂伞","price":100,"source_site":"北京"}
 { "create": { } }
 {"id":"jkdfjkdfnnc","describe":"40包抽纸整箱批发家用卫生纸巾实惠装餐巾纸小包擦手面巾纸抽漫花 整箱40包半年装 经济实惠装","labels":"新品,包邮","brand":"千唯","tags":"日用品,家装,抽纸","price":20,"source_site":"杭州"}
-
-
-GET /mail_goods/_search
-
-GET /mail_goods/_search
-{
-  "query": {
-    "match": {
-      "brand": "千唯,晨光"
-    }
-  }
-}
-
